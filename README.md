@@ -1,2 +1,2 @@
-# android-kotlin
-Learning Android using Kotlin
+# Learning Android with Kotlin
+Resource to maintain all little apps created to learn Android with Kotlin
