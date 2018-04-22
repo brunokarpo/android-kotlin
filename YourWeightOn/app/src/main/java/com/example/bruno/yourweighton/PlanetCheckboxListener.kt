@@ -25,7 +25,7 @@ class PlanetCheckboxListener(val planet: Planets, val activity: Activity): View.
             var weight = activity.weight_edit_text_id.text.toString().toDouble()
             var result = planet.calculateWeight(weight).format(2)
 
-            message = "Your weight on ${activity.resources.getString(planet.planetName)} are $result"
+            message = "Your weight on ${activity.resources.getString(planet.planetName)} is $result"
         } else {
             message = ""
         }
