@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">CheckBoxWidget</string>
+    <string name="veggies_checkbox">Veggies</string>
+    <string name="meat_checkbox">Meat</string>
+    <string name="fruits_checkbox">Fruits</string>
+</resources>
