@@ -6,4 +6,5 @@
     <string name="mars">Mars</string>
     <string name="venus">Venus</string>
     <string name="jupter">Jupter</string>
+    <string name="type_your_weight_text">Please, type your weight!</string>
 </resources>
