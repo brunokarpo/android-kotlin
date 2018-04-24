@@ -12,11 +12,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         go_to_second_button_id.setOnClickListener {
-//            var intent = Intent(this, SecondActivity::class.java)
-//            startActivity(intent)
+            var name = name_edt_id.text
 
-            // the best way to start an activity
-            startActivity( Intent(this, SecondActivity::class.java) )
+            var intent = Intent(this, SecondActivity::class.java)
+            intent.putExtra(Constants.NAME.name, name)
+
+            startActivity(intent)
+
         }
     }
 }
