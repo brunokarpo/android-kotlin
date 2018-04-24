@@ -4,4 +4,6 @@
     <string name="second_activity_title">Hi! I\'m the second activity!</string>
     <string name="type_name_text">Type your name:</string>
     <string name="name">Name</string>
+    <string name="go_back">Go Back!</string>
+    <string name="hello_from_second">Hello from Second Activity</string>
 </resources>

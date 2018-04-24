@@ -1,5 +1,6 @@
 package com.example.bruno.shownextactivity
 
 enum class Constants {
-    NAME
+    NAME,
+    HELLO_FROM_SECOND
 }
