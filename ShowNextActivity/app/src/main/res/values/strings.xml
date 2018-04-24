@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ShowNextActivity</string>
+    <string name="go_second_activity_button">Go to second activity</string>
+    <string name="second_activity_title">Hi! I\'m the second activity!</string>
+</resources>
