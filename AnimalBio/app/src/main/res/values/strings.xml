@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AnimalBio</string>
+    <string name="lion_name">Lion</string>
+    <string name="lion_description">The King of Wild Life</string>
+    <string name="cheetah_name">Cheetah</string>
+    <string name="cheetah_description">The speedly animal of wild life</string>
 </resources>
