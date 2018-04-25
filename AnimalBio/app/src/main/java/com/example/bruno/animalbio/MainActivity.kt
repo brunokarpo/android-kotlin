@@ -10,11 +10,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var cheetah = cheeta_img_id
-        var lion = lion_img_id
-
-        cheetah.setOnClickListener(ImageAnimalListener(AnimalDetails.CHEETAH))
-        lion.setOnClickListener(ImageAnimalListener(AnimalDetails.LION))
+        cheeta_img_id.setOnClickListener(ImageAnimalListener(AnimalDetails.CHEETAH))
+        lion_img_id.setOnClickListener(ImageAnimalListener(AnimalDetails.LION))
 
     }
 }

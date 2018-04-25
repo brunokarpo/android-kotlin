@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">AnimalBio</string>
     <string name="lion_name">Lion</string>
-    <string name="lion_description">The King of Wild Life</string>
+    <string name="lion_description">The lion (Panthera leo) is a species in the family Felidae, and a member of the genus Panthera. It exhibits a pronounced sexual dimorphism;</string>
     <string name="cheetah_name">Cheetah</string>
-    <string name="cheetah_description">The speedly animal of wild life</string>
+    <string name="cheetah_description">The cheetah is a large cat of the subfamily Felinae that occurs in Southern, North and East Africa, and a few localities in Iran.</string>
 </resources>
