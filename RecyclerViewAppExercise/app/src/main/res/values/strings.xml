@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">RecyclerViewAppExercise</string>
+    <string name="new_element_button">New Element</string>
 </resources>
