@@ -24,7 +24,7 @@ class CoinAdapter(private var list: ArrayList<Coin>,
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
+        holder.bindItem(list.get(position))
     }
 
 
