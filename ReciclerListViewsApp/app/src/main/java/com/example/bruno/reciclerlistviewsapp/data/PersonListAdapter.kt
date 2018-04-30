@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.example.bruno.reciclerlistviewsapp.R
 import com.example.bruno.reciclerlistviewsapp.model.Person
 
@@ -16,7 +17,7 @@ class PersonListAdapter(private val list: ArrayList<Person>,
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.my_list_row, parent, false)
 
-        return ViewHolder(view, context)
+        return ViewHolder(view)
     }
 
     override fun getItemCount(): Int {
@@ -28,7 +29,8 @@ class PersonListAdapter(private val list: ArrayList<Person>,
     }
 
 
-    class ViewHolder(itemView: View, val context: Context): RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+
         fun bindItem(person: Person) {
             var name: TextView = itemView.findViewById(R.id.name_text_id)
             var age: TextView = itemView.findViewById(R.id.age_text_id)
@@ -37,6 +39,11 @@ class PersonListAdapter(private val list: ArrayList<Person>,
             name.text = person.name
             age.text = person.age.toString()
             image.setImageDrawable(context.applicationContext.resources.getDrawable(person.idImage!!))
+
+            // Adding event to our item on Recycler List View
+            itemView.setOnClickListener {
+                Toast.makeText(context, "The person is ${name.text} with ${age.text}", Toast.LENGTH_LONG).show()
+            }
         }
     }
 
