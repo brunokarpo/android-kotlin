@@ -18,6 +18,10 @@ class CoinRepository {
         return ArrayList(coins)
     }
 
+    fun save(coin: Coin) {
+        coins!!.add(coin)
+    }
+
     companion object {
 
         var instance = CoinRepository()

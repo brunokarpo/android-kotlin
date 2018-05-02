@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">RecyclerViewAppExercise</string>
     <string name="new_element_button">New Element</string>
+    <string name="coin_title">Coin details</string>
+    <string name="type_coin_name_hint">Type Coin Name</string>
+    <string name="coin_name_label">Coin Name</string>
+    <string name="coin_value_label">Coin Value</string>
+    <string name="type_coin_value_hint">Type Coin Value</string>
+    <string name="add_coin_button">Add Coin</string>
+    <string name="coin_added_msg">Coin added!</string>
+    <string name="new_coin_created_sucessfuly">New Coin Created Sucessfuly</string>
 </resources>
