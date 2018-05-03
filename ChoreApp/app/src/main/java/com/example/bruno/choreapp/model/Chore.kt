@@ -5,5 +5,5 @@ class Chore(
         var assignedBy: String? = null,
         var assignedTo: String? = null,
         var timeAssigned: Long? = null,
-        var id: Integer? = null
+        var id: Int? = null
     ) {}
