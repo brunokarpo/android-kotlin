@@ -1,9 +1,10 @@
-package com.example.bruno.choreapp.activity
+package com.example.bruno.choreapp.activity.createchore
 
 interface CreateChoreView{
     fun showMessageEnterAChore()
     fun showMessageChoreCreatedSuccessfully()
     fun cleanFields()
+    fun goToChoreListActivity()
 }
 
 interface CreateChorePresenter{

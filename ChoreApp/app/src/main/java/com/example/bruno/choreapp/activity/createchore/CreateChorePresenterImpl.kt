@@ -1,4 +1,4 @@
-package com.example.bruno.choreapp.activity
+package com.example.bruno.choreapp.activity.createchore
 
 import android.text.TextUtils
 import com.example.bruno.choreapp.data.ChoreRepository
@@ -27,5 +27,6 @@ class CreateChorePresenterImpl(
 
         view.showMessageChoreCreatedSuccessfully()
         view.cleanFields()
+        view.goToChoreListActivity()
     }
 }

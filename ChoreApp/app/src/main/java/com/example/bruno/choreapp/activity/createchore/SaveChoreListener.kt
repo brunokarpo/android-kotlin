@@ -1,4 +1,4 @@
-package com.example.bruno.choreapp.activity
+package com.example.bruno.choreapp.activity.createchore
 
 import android.view.View
 import android.widget.EditText
