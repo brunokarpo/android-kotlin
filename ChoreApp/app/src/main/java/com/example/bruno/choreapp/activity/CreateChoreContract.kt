@@ -1,9 +1,11 @@
 package com.example.bruno.choreapp.activity
 
-interface CreateChoreContract {
+interface CreateChoreView{
+    fun showMessageEnterAChore()
+    fun showMessageChoreCreatedSuccessfully()
+    fun cleanFields()
+}
 
-    interface CreateChoreView{}
-
-    interface CreateChorePresenter{}
-
+interface CreateChorePresenter{
+    fun saveChore(choreName: String, assignedBy: String, assignedTo: String)
 }

@@ -4,4 +4,6 @@
     <string name="assigned_to_hint">Assigned to...</string>
     <string name="assigned_by">Assigned by...</string>
     <string name="save_chore">Save Chore</string>
+    <string name="please_enter_a_chore">Please enter a chore</string>
+    <string name="chore_created_successfully">Chore created successfully</string>
 </resources>

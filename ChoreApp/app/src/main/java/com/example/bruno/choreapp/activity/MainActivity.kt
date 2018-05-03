@@ -2,19 +2,16 @@ package com.example.bruno.choreapp.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.bruno.choreapp.R
 import com.example.bruno.choreapp.data.ChoreRepository
 import com.example.bruno.choreapp.data.ChoresDatabaseHandler
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), CreateChoreContract.CreateChoreView {
+class MainActivity : AppCompatActivity(), CreateChoreView {
+    private var presenter: CreateChorePresenter? = null
 
-    private var presenter: CreateChoreContract.CreateChorePresenter? = null
     private var dbHandler: ChoreRepository? = null
-    private var enterChore = enter_chore_edit_id
-    private var assignedBy = assigned_by_edit_id
-    private var assignedTo = assign_to_edit_id
-    private var saveChore = save_chore_button_id
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,6 +20,21 @@ class MainActivity : AppCompatActivity(), CreateChoreContract.CreateChoreView {
         dbHandler = ChoresDatabaseHandler(this)
         presenter = CreateChorePresenterImpl(this, dbHandler!!)
 
-        saveChore.setOnClickListener(SaveChoreListener(enterChore, assignedBy, assignedTo, presenter))
+        save_chore_button_id.setOnClickListener(
+                SaveChoreListener(enter_chore_edit_id, assigned_by_edit_id, assign_to_edit_id, presenter!!)
+        )
+    }
+    override fun showMessageEnterAChore() {
+        Toast.makeText(this, getString(R.string.please_enter_a_chore), Toast.LENGTH_LONG).show()
+    }
+
+    override fun showMessageChoreCreatedSuccessfully() {
+        Toast.makeText(this, getString(R.string.chore_created_successfully), Toast.LENGTH_LONG).show()
+    }
+
+    override fun cleanFields() {
+        enter_chore_edit_id.text.clear()
+        assigned_by_edit_id.text.clear()
+        assign_to_edit_id.text.clear()
     }
 }
