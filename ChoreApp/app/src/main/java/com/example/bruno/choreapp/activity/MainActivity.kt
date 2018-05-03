@@ -1,7 +1,8 @@
-package com.example.bruno.choreapp
+package com.example.bruno.choreapp.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.example.bruno.choreapp.R
 
 class MainActivity : AppCompatActivity() {
 
