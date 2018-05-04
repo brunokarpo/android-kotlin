@@ -7,4 +7,5 @@
     <string name="please_enter_a_chore">Please enter a chore</string>
     <string name="chore_created_successfully">Chore created successfully</string>
     <string name="image_description">Image of Chore</string>
+    <string name="menu_title">Add Chore</string>
 </resources>

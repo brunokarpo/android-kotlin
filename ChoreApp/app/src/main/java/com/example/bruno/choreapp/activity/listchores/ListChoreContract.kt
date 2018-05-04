@@ -6,6 +6,8 @@ interface ListChoreView {
 
     fun showChoreList(listChores: ArrayList<Chore>)
 
+    fun goToNewChoreActivity()
+
 }
 
 interface ListChorePresenter {

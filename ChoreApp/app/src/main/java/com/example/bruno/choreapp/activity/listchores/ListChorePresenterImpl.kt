@@ -11,6 +11,11 @@ class ListChorePresenterImpl(
     override fun retrieveAllChores() {
         var choresList = repository.readChores()
 
+        if (choresList.isEmpty()) {
+            view.goToNewChoreActivity()
+            return
+        }
+
         view.showChoreList(choresList)
     }
 }
