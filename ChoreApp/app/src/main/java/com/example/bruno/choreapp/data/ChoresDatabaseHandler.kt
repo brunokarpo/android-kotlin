@@ -9,10 +9,12 @@ import android.util.Log
 import com.example.bruno.choreapp.model.*
 import java.text.DateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 class ChoresDatabaseHandler(context: Context) :
         SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION),
         ChoreRepository{
+
 
     override fun onCreate(db: SQLiteDatabase?) {
         // SQL = Structured Query Language
@@ -68,12 +70,7 @@ class ChoresDatabaseHandler(context: Context) :
         chore.choreName = cursor.getString(cursor.getColumnIndex(KEY_CHORE_NAME))
         chore.assignedBy = cursor.getString(cursor.getColumnIndex(KEY_CHORE_ASSIGNED_BY))
         chore.assignedTo = cursor.getString(cursor.getColumnIndex(KEY_CHORE_ASSIGNED_TO))
-
-        var timeAssigned = cursor.getLong(cursor.getColumnIndex(KEY_CHORE_ASSIGNED_TIME))
-        chore.timeAssigned = timeAssigned
-
-        var dateFormat: java.text.DateFormat = DateFormat.getDateInstance()
-        var formattedDate = dateFormat.format(Date(chore.timeAssigned!!).time)
+        chore.timeAssigned = cursor.getLong(cursor.getColumnIndex(KEY_CHORE_ASSIGNED_TIME))
 
         return chore
     }
@@ -103,6 +100,33 @@ class ChoresDatabaseHandler(context: Context) :
         val whereClause = "$KEY_ID = ?"
         db.delete(TABLE_NAME, whereClause, arrayOf(chore.id.toString()))
         db.close()
+    }
+
+    override fun readChores(): ArrayList<Chore> {
+        var db: SQLiteDatabase = readableDatabase
+        val columns = arrayOf(KEY_ID,
+                KEY_CHORE_NAME, KEY_CHORE_ASSIGNED_TO, KEY_CHORE_ASSIGNED_BY,
+                KEY_CHORE_ASSIGNED_TIME)
+        val selection = "1=1"
+
+        var cursor: Cursor = db.query(TABLE_NAME, columns, selection, null, null, null, null)
+
+        var arrayChores = mutableListOf<Chore>()
+
+        if (cursor.moveToFirst()) {
+            do {
+                var chore = Chore()
+                chore.id = cursor.getInt(cursor.getColumnIndex(KEY_ID))
+                chore.choreName = cursor.getString(cursor.getColumnIndex(KEY_CHORE_NAME))
+                chore.assignedBy = cursor.getString(cursor.getColumnIndex(KEY_CHORE_ASSIGNED_BY))
+                chore.assignedTo = cursor.getString(cursor.getColumnIndex(KEY_CHORE_ASSIGNED_TO))
+                chore.timeAssigned = cursor.getLong(cursor.getColumnIndex(KEY_CHORE_ASSIGNED_TIME))
+
+                arrayChores.add(chore)
+            } while(cursor.moveToNext())
+        }
+
+        return ArrayList(arrayChores)
     }
 
     override fun getChoresCount(): Int {

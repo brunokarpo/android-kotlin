@@ -1,4 +1,4 @@
-package com.example.bruno.choreapp.data
+package com.example.bruno.choreapp.activity.listchores
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -10,10 +10,10 @@ import com.example.bruno.choreapp.R
 import com.example.bruno.choreapp.model.Chore
 import java.util.*
 
-class ChoreLIstAdapter(
+class ChoreListAdapter(
         private val list: ArrayList<Chore>,
         private val context: Context
-    ): RecyclerView.Adapter<ChoreLIstAdapter.ViewHolder>() {
+    ): RecyclerView.Adapter<ChoreListAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int {
         return list.size

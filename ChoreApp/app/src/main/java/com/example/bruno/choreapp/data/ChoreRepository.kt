@@ -9,4 +9,5 @@ interface ChoreRepository {
     fun updateChore(chore: Chore): Int
     fun deleteChore(chore: Chore)
     fun getChoresCount(): Int
+    fun readChores(): ArrayList<Chore>
 }
