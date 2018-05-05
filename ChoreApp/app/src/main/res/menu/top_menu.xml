@@ -3,11 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/add_menu_button"
+        android:id="@+id/menu_add_chore_button_id"
         android:checkable="false"
-        android:enabled="false"
         android:icon="@android:drawable/ic_menu_add"
         android:title="@string/menu_title"
-        android:visible="true"
         app:showAsAction="always" />
 </menu>

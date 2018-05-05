@@ -8,9 +8,17 @@ interface ListChoreView {
 
     fun goToNewChoreActivity()
 
+    fun showPopUpNewChore()
+
+    fun dismissPopUpNewChore()
+
+    fun reloadList()
+
 }
 
 interface ListChorePresenter {
 
     fun retrieveAllChores()
+
+    fun createChore(choreName: String, assignedTo: String, assignedBy: String)
 }
