@@ -9,6 +9,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import com.example.bruno.choreapp.R
 import com.example.bruno.choreapp.activity.listchores.listeners.DeleteChoreAdapterListener
+import com.example.bruno.choreapp.activity.listchores.listeners.EditChoreAdapterListener
 import com.example.bruno.choreapp.data.ChoreRepository
 import com.example.bruno.choreapp.data.ChoresDatabaseHandler
 import com.example.bruno.choreapp.model.Chore
@@ -44,6 +45,11 @@ class ChoreListAdapter(
         notifyItemRemoved(indexElement)
     }
 
+    override fun updateChoreOnList(chore: Chore) {
+        var indexElement = list.indexOf(chore)
+        notifyItemChanged(indexElement, chore)
+    }
+
     inner class ViewHolder(itemView: View?): RecyclerView.ViewHolder(itemView) {
 
         private var choreName = itemView!!.findViewById(R.id.list_chore_name_text_id) as TextView
@@ -51,6 +57,7 @@ class ChoreListAdapter(
         private var assignedTo = itemView!!.findViewById(R.id.list_assigned_to_text_id) as TextView
         private var assignedDate = itemView!!.findViewById(R.id.list_chore_date_text_id) as TextView
         private var buttonDelete = itemView!!.findViewById(R.id.list_delete_button_id) as ImageButton
+        private var editButton = itemView!!.findViewById(R.id.list_edit_button_id) as ImageButton
 
         fun bindItem(chore: Chore) {
 
@@ -59,6 +66,7 @@ class ChoreListAdapter(
             assignedTo.text = chore.assignedTo
             assignedDate.text = chore.showHumanDate()
             buttonDelete.setOnClickListener(DeleteChoreAdapterListener(chore, presenter))
+            editButton.setOnClickListener(EditChoreAdapterListener(chore, presenter))
         }
     }
 }
