@@ -61,10 +61,10 @@ class ChoreListAdapter(
 
         fun bindItem(chore: Chore) {
 
-            choreName.text = chore.choreName
-            assignedBy.text = chore.assignedBy
-            assignedTo.text = chore.assignedTo
-            assignedDate.text = chore.showHumanDate()
+            choreName.text = itemView.context.getString(R.string.chore_label) + chore.choreName
+            assignedBy.text = itemView.context.getString(R.string.assigned_by_label) + chore.assignedBy
+            assignedTo.text = itemView.context.getString(R.string.assigned_to_label) + chore.assignedTo
+            assignedDate.text = itemView.context.getString(R.string.created_label) + chore.showHumanDate()
             buttonDelete.setOnClickListener(DeleteChoreAdapterListener(chore, presenter))
             editButton.setOnClickListener(EditChoreAdapterListener(chore, presenter))
         }

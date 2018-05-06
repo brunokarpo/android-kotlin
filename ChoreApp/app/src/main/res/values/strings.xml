@@ -8,4 +8,8 @@
     <string name="chore_created_successfully">Chore created successfully</string>
     <string name="image_description">Image of Chore</string>
     <string name="menu_title">Add Chore</string>
+    <string name="chore_label">Chore:</string>
+    <string name="assigned_by_label">Assigned by:</string>
+    <string name="assigned_to_label">Assigned to:</string>
+    <string name="created_label">Created:</string>
 </resources>
