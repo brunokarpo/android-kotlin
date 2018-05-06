@@ -17,4 +17,9 @@ class Chore(
 
         return "Created $formattedDate"
     }
+
+    override fun equals(other: Any?): Boolean {
+        other as Chore
+        return this.id == other.id
+    }
 }
