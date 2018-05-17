@@ -1,7 +1,8 @@
-package com.example.bruno.recipefinderapp
+package com.example.bruno.recipefinderapp.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.example.bruno.recipefinderapp.R
 
 class RecipeListActivity : AppCompatActivity() {
 
