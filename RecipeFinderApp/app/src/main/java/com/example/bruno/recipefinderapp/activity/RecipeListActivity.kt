@@ -2,6 +2,8 @@ package com.example.bruno.recipefinderapp.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.util.Log
 import com.android.volley.Request
 import com.android.volley.RequestQueue
@@ -10,13 +12,17 @@ import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.bruno.recipefinderapp.R
+import com.example.bruno.recipefinderapp.data.RecipeListAdapter
 import com.example.bruno.recipefinderapp.model.Recipe
+import kotlinx.android.synthetic.main.activity_recipe_list.*
 import org.json.JSONException
 
 class RecipeListActivity : AppCompatActivity() {
 
     var volleyRequest: RequestQueue? = null
     var recipeList: ArrayList<Recipe>? = null
+    var recipeAdapter: RecipeListAdapter? = null
+    var layoutManager: RecyclerView.LayoutManager? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +36,7 @@ class RecipeListActivity : AppCompatActivity() {
         volleyRequest = Volley.newRequestQueue(this)
 
         getRecipe(urlString)
+
     }
 
     fun getRecipe(url: String) {
@@ -52,6 +59,14 @@ class RecipeListActivity : AppCompatActivity() {
                             var recipe = Recipe(title, ingredients, thumbnail, href)
                             recipeList!!.add(recipe)
                         }
+
+                        recipeAdapter = RecipeListAdapter(recipeList!!, this)
+                        layoutManager = LinearLayoutManager(this)
+
+                        recipe_recycler_view_id.layoutManager = layoutManager
+                        recipe_recycler_view_id.adapter = recipeAdapter
+
+                        recipeAdapter?.notifyDataSetChanged()
 
                     } catch (ex: JSONException) { ex.printStackTrace() }
                 },

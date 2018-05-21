@@ -30,7 +30,7 @@ class RecipeListAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindItem(list[0])
+        holder.bindItem(list[position])
     }
 
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
