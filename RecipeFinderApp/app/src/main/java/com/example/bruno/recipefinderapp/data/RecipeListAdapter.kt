@@ -1,6 +1,7 @@
 package com.example.bruno.recipefinderapp.data
 
 import android.content.Context
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.text.TextUtils
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import com.example.bruno.recipefinderapp.R
+import com.example.bruno.recipefinderapp.activity.ShowLinkActivity
 import com.example.bruno.recipefinderapp.model.Recipe
 import com.squareup.picasso.Picasso
 
@@ -43,7 +45,12 @@ class RecipeListAdapter(
         fun bindItem(recipe: Recipe) {
             title.text = recipe.title
             ingredients.text = recipe.ingredients
-            linkButton.setOnClickListener {  }
+
+            linkButton.setOnClickListener {
+                var intent = Intent(context, ShowLinkActivity::class.java)
+                intent.putExtra("link", recipe.href)
+                context.startActivity(intent)
+            }
 
             if (!TextUtils.isEmpty(recipe.thumbnail)) {
                 Picasso.get()

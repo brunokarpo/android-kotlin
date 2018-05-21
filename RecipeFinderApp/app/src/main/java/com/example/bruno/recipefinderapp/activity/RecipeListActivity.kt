@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.text.TextUtils
 import android.util.Log
 import com.android.volley.Request
 import com.android.volley.RequestQueue
@@ -29,13 +30,24 @@ class RecipeListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recipe_list)
 
-        var urlString = "http://www.recipepuppy.com/api/"
+        var url = "http://www.recipepuppy.com/api/"
+
+        var extras = intent.extras
+        var ingredients = extras.getString("ingredients")
+        var searchTerm = extras.getString("search")
+        if(extras != null
+                && !TextUtils.isEmpty(ingredients)
+                && !TextUtils.isEmpty(searchTerm)) {
+            var tempUrl = "http://www.recipepuppy.com/api/?i=${ingredients}&q=${searchTerm}"
+
+            url = tempUrl
+        }
 
         recipeList = ArrayList()
 
         volleyRequest = Volley.newRequestQueue(this)
 
-        getRecipe(urlString)
+        getRecipe(url)
 
     }
 
