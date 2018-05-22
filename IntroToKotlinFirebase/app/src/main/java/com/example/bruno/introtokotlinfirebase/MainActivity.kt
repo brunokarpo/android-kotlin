@@ -2,12 +2,14 @@ package com.example.bruno.introtokotlinfirebase
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.widget.Toast
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,6 +24,24 @@ class MainActivity : AppCompatActivity() {
         var databaseRef = firebaseDatabase.getReference("messages").push()
 
         mAuth = FirebaseAuth.getInstance()
+
+        create_button_id.setOnClickListener{
+
+            var email = email_edit_id.text.toString().trim()
+            var password = password_edit_id.text.toString().trim()
+
+            mAuth!!.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, {
+                        task: Task<AuthResult> ->
+                        if (task.isSuccessful) {
+                            var user: FirebaseUser = mAuth!!.currentUser!!
+                            Log.d("User", user.email.toString())
+                        } else {
+                            Log.e("Error:", task.toString())
+                        }
+                    })
+        }
+
 
         mAuth!!.signInWithEmailAndPassword("bruno@me.com", "password")
                 .addOnCompleteListener{
