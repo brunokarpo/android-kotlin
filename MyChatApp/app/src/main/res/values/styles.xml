@@ -21,4 +21,12 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="login_card_view_style">
+        <item name="android:background">@color/colorAccent</item>
+    </style>
+
+    <style name="login_card_view_linear_layout_style">
+        <item name="android:background">@color/colorAccent</item>
+    </style>
+
 </resources>

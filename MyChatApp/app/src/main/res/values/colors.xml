@@ -13,4 +13,7 @@
     <color name="bgColor">#8F78BA</color>
     <color name="darkBg">#222222</color>
     <color name="grenn">#6AA62D</color>
+    <color name="white">#FFFFFF</color>
+    <color name="text_white">#F0F7F4</color>
+    <color name="text_button_color">#D3D3D3</color>
 </resources>

@@ -33,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
-        android:id="@+id/login_button_id"
+        android:id="@+id/main_login_button_id"
         style="@style/button_accounts_style"
         android:layout_width="@dimen/button_width_default"
         android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/create_account_button_id"
+        android:id="@+id/main_create_account_button_id"
         style="@style/button_accounts_style"
         android:layout_width="@dimen/button_width_default"
         android:layout_height="wrap_content"
@@ -56,5 +56,5 @@
         android:text="@string/need_account"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_button_id" />
+        app:layout_constraintTop_toBottomOf="@+id/main_login_button_id" />
 </android.support.constraint.ConstraintLayout>

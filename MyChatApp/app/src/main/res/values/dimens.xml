@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="button_width_default">220dp</dimen>
+    <dimen name="login_card_view_width">300dp</dimen>
+    <dimen name="login_card_view_height">300dp</dimen>
+    <dimen name="login_card_view_coner_radius_dimens">13dp</dimen>
+    <dimen name="login_card_view_elevation_dimens">3dp</dimen>
 </resources>
