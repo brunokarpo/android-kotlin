@@ -14,5 +14,9 @@ class MainActivity : AppCompatActivity() {
         main_create_account_button_id.setOnClickListener{
             startActivity(Intent(this, CreateAccountActivity::class.java))
         }
+
+        main_login_button_id.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
+        }
     }
 }

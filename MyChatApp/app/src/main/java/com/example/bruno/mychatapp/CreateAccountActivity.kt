@@ -1,5 +1,6 @@
 package com.example.bruno.mychatapp
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
@@ -60,7 +61,11 @@ class CreateAccountActivity : AppCompatActivity() {
                         mDatabase!!.setValue(userObject).addOnCompleteListener {
                             task: Task<Void> ->
                             if (task.isSuccessful) {
-                                Toast.makeText(this, "User created", Toast.LENGTH_LONG).show()
+                                var dashboardIntent = Intent(this, DashboardActivity::class.java)
+                                dashboardIntent.putExtra("name", displayName)
+
+                                startActivity(dashboardIntent)
+                                finish()
                             } else {
                                 Toast.makeText(this, "User not created", Toast.LENGTH_LONG).show()
                             }
