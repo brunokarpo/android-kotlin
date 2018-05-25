@@ -1,11 +1,15 @@
 package com.example.bruno.mychatapp.adapters
 
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.TextView
-import android.widget.Toast
 import com.example.bruno.mychatapp.R
+import com.example.bruno.mychatapp.activities.ChatActivity
+import com.example.bruno.mychatapp.activities.ProfileActivity
 import com.example.bruno.mychatapp.model.User
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.google.firebase.database.DatabaseReference
@@ -21,13 +25,38 @@ class UsersAdapter(databaseQuery: DatabaseReference, var context: Context)
     ) {
 
     override fun populateViewHolder(viewHolder: ViewHolder?, model: User?, position: Int) {
-        var userId = getRef(position)
+        var userId = getRef(position).key
 
         viewHolder!!.bindView(model!!, context)
 
         viewHolder.itemView.setOnClickListener {
-            // TODO: create a popup dialog where users can choose to either send a message or see profile
-            Toast.makeText(context, "User row clicked: $userId", Toast.LENGTH_LONG).show()
+            var options = arrayOf("Open profile", "Send Message")
+            var builder = AlertDialog.Builder(context)
+            builder.setTitle("Select Options")
+            builder.setItems(options, DialogInterface.OnClickListener { dialog, which ->
+                var userName = viewHolder!!.userNameTxt
+                var userStatus = viewHolder!!.userStatusTxt
+                var profilePic = viewHolder!!.userProfilePicLink
+
+                when(which) {
+                    0 -> {
+                        var profileIntent = Intent(context, ProfileActivity::class.java)
+                        profileIntent.putExtra("userId", userId)
+                        context.startActivity(profileIntent)
+                    }
+                    1 -> {
+                        var chatIntent = Intent(context, ChatActivity::class.java)
+                        chatIntent.putExtra("userId", userId)
+                        chatIntent.putExtra("name", userName)
+                        chatIntent.putExtra("status", userStatus)
+                        chatIntent.putExtra("profile", profilePic)
+                        context.startActivity(chatIntent)
+                    }
+                    else -> {}
+                }
+            })
+
+            builder.create().show()
         }
     }
 
