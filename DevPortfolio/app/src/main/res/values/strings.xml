@@ -4,6 +4,17 @@
     <string name="dev_profission">Android Kotlin Developer</string>
     <string name="get_in_touch">Get in Touch</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="about">ABOUT</string>
+    <string name="work">WORK</string>
+    <string name="skills">Skills</string>
+    <string name="contact">CONTACT</string>
+
+    <string name="about_bruno">A única área que eu acho, que vai exigir muita atenção nossa, 
+        e aí eu já aventei a hipótese de até criar um ministério. É na área de... Na área... 
+        Eu diria assim, como uma espécie de analogia com o que acontece na área agrícola.</string>
+    
+    <string name="skills_list">* Java\n* Kotlin\n* Android\n* Continuous Delivery</string>
+    <string name="works">Oobj Tecnologia da Informação</string>
+    <string name="contacts" />
 </resources>
