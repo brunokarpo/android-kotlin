@@ -17,4 +17,5 @@
     <string name="skills_list">* Java\n* Kotlin\n* Android\n* Continuous Delivery</string>
     <string name="works">Oobj Tecnologia da Informação</string>
     <string name="contacts" />
+    <string name="little_phone_description_image">Little phone description image</string>
 </resources>
