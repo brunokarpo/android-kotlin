@@ -1,40 +1,40 @@
 package com.example.bruno.motivationalapp
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import com.android.volley.Request
-import com.android.volley.Response
-import com.android.volley.VolleyError
-import com.android.volley.toolbox.JsonArrayRequest
-import com.example.bruno.motivationalapp.controller.AppController
-import org.json.JSONArray
-import org.json.JSONException
+import android.support.v7.app.AppCompatActivity
+import com.example.bruno.motivationalapp.controller.QuoteData
+import com.example.bruno.motivationalapp.controller.QuoteListAsyncResponse
+import com.example.bruno.motivationalapp.controller.QuoteViewPagerAdapter
+import com.example.bruno.motivationalapp.model.Quote
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var quoteViewPagerAdapter: QuoteViewPagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        getInfo("https://raw.githubusercontent.com/pdichone/UIUX-Android-Course/master/Quotes.json%20")
+        quoteViewPagerAdapter = QuoteViewPagerAdapter(supportFragmentManager, getFragments())
+
+        main_view_pager_id.adapter = quoteViewPagerAdapter
+
     }
 
-    fun getInfo(url: String) {
-        val quoteRequest = JsonArrayRequest(Request.Method.GET, url,
-                Response.Listener {
-                    response: JSONArray ->
-                    try {
-                        Log.d("Information", response.toString())
-                    } catch(e: JSONException) { e.printStackTrace() }
-                },
-                Response.ErrorListener {
-                    error: VolleyError? ->
-                    try {
-                        Log.d("Error", "Not working")
-                    } catch (e: JSONException) { e.printStackTrace() }
-                })
+    fun getFragments(): ArrayList<QuoteFragment> {
+        val fragmentList = arrayListOf<QuoteFragment>()
 
-        AppController.instance!!.addToRuquestQueue(quoteRequest)
+        QuoteData().getQuotes(object : QuoteListAsyncResponse {
+            override fun processFinished(quotes: ArrayList<Quote>) {
+                for (i in 0 until quotes.size) {
+                    val quoteFragment = QuoteFragment.newInstance(quotes[i])
+
+                    fragmentList.add(quoteFragment)
+                }
+                quoteViewPagerAdapter.notifyDataSetChanged()
+            }
+        })
+        return fragmentList
     }
 }
